@@ -1,77 +1,12 @@
 ---
-const pageTitle = 'About Me';
-
-const identity = {
-	firstName: 'Sarah',
-	country: 'Canada',
-	occupation: 'Technical Writer',
-	hobbies: ['photography', 'birdwatching', 'baseball'],
-};
-
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
-
-const happy = true;
-const finished = false;
-const goal = 3;
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<body>
-			<a href='/'>Home</a>
-			<a href='/blog/'>Blog</a>
-			<h1>{pageTitle}</h1>
-			<h2>... and my new Astro site!</h2>
-
-			<p>
-				I am working through Astro's introductory tutorial. This is the
-				second page on my website, and it's the first one I built
-				myself!
-			</p>
-
-			<p>
-				This site will update as I complete more of the tutorial, so
-				keep checking back and see how my journey is going!
-			</p>
-			<p>Here are a few facts about me:</p>
-			<ul>
-				<li>My name is {identity.firstName}.</li>
-				<li>
-					I live in {identity.country} and I work as a {
-						identity.occupation
-					}.
-				</li>
-				{
-					identity.hobbies.length >= 2 && (
-						<li>
-							Two of my hobbies are: {identity.hobbies[0]} and{' '}
-							{identity.hobbies[1]}
-						</li>
-					)
-				}
-			</ul>
-			<p>My skills are:</p>
-			<ul>
-				{skills.map((skill) => <li>{skill}</li>)}
-			</ul>
-			{happy && <p>I am happy to be learning Astro!</p>}
-
-			{finished && <p>I finished this tutorial!</p>}
-
-			{
-				goal === 3 ? (
-					<p>My goal is to finish in 3 days.</p>
-				) : (
-					<p>My goal is not 3 days.</p>
-				)
-			}
-		</body>
-	</body>
-</html>
+<BaseLayout subTitle='ABOUT'>
+	<p>Hi, I'm Kobayashi, a front-end developer. You can find me on
+		<a target='_blank' href='https://twitter.com/danzzzz11'>Twitter</a> or
+		<a target='_blank' href='https://github.com/KamiC6238'>GitHub</a>.
+	</p>
+	<p>The purpose of creating this blog is to be able to record my thoughts and ideas, not limited to technology.</p>
+	<p>In short, thank you for reading this far.</p>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import avatarSrc from '../../assets/avatar.png';
+import githubSvg from '../../assets/github.svg';
+import twitterSvg from '../../assets/twitter.svg';
+---
+
+<div class='flex flex-col justify-center items-center'>
+    <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
+    <p class='font-bold text-lg my-4 cursor'>Kobayashi</p>
+    <div class='w-16 flex justify-between'>
+        <a target='_blank' href='https://twitter.com/danzzzz11' class='after:hidden'>
+            <img src={twitterSvg} class='w-6 h-6' alt='Twitter' />
+        </a>
+        <a target='_blank' href='https://github.com/KamiC6238' class='after:hidden'>
+            <img src={githubSvg} class='w-6 h-6' alt='GitHub' />
+        </a>
+    </div>
+    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 nlc:mb-4'>
+        <a href='/about/'>ABOUT</a>
+        <a href='/essays/'>ESSAYS</a>
+        <a href='/projects/'>PROJECTS</a>
+    </div>
+</div>
