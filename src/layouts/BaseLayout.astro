@@ -4,7 +4,7 @@ import Profile from '../pages/components/profile.astro';
 
 const siteTitle = 'KOBAYASHI';
 const { subTitle } = Astro.props;
-const commonCls = 'flex-1 ml-16 child-p:text-gray-700 child-p:font-normal break-keep max-w-2xl pb-20 text-base-pure';
+const commonCls = 'flex-1 child-p:text-gray-700 child-p:font-normal break-keep max-w-2xl pb-20 text-base-pure';
 const isMarkdown = !!Astro.props?.frontmatter?.isMarkdown;
 const essayTitle = Astro.props?.frontmatter?.title;
 ---
@@ -16,7 +16,7 @@ const essayTitle = Astro.props?.frontmatter?.title;
 		<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 	</head>
 	<body>
-		<div class='flex justify-between items-start py-20 w-full h-full max-w-3xl my-0 mx-auto'>
+		<div class='flex justify-between items-start py-20 w-full h-full max-w-4xl my-0 mx-auto'>
 			<Profile />
 			<section class={isMarkdown ? `prose ${commonCls}` : commonCls} >
 				<h2 class={isMarkdown ? '' : 'font-bold text-lg mb-3'}>{essayTitle ?? subTitle}</h2>

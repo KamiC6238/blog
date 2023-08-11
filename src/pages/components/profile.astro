@@ -2,7 +2,20 @@
 import avatarSrc from '../../assets/avatar.png';
 import githubSvg from '../../assets/github.svg';
 import twitterSvg from '../../assets/twitter.svg';
+
+import sunSvg from '../../assets/sun.svg';
+import moonSvg from '../../assets/moon.svg';
 ---
+
+<style>
+    #mode-switch {
+        transition: .8s ease-in-out;
+        transform: rotate(0deg);
+    }
+    #mode-switch .moon {
+        transform: rotate(180deg);
+    }
+</style>
 
 <div class='flex flex-col justify-center items-center'>
     <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
@@ -20,4 +33,32 @@ import twitterSvg from '../../assets/twitter.svg';
         <a href='/essays/'>ESSAYS</a>
         <a href='/projects/'>PROJECTS</a>
     </div>
+    <div class='overflow-hidden max-h-8 mt-6'>
+        <div id='mode-switch' class='w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6 light'>
+            <img src={sunSvg} alt='sun' />
+            <img class='moon' src={moonSvg} alt='moon' />
+        </div>
+    </div>
 </div>
+
+<script>
+    const modeNode = document.getElementById('mode-switch');
+    let deg = 0;
+
+    modeNode?.addEventListener('click', (event) => {
+        // @ts-ignore
+        if (event.target?.nodeName === 'IMG') {
+            deg += 180;
+
+            if (modeNode.classList.contains('dark')) {
+                modeNode.classList.remove('dark');
+                modeNode.classList.add('light');
+                modeNode.style.transform = `rotate(-${deg}deg)`
+            } else {
+                modeNode.classList.remove('light');
+                modeNode.classList.add('dark');
+                modeNode.style.transform = `rotate(-${deg}deg)`
+            }
+        }
+    })
+</script>
