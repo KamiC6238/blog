@@ -6,7 +6,7 @@ let _essays = essays as MarkdownInstance<Record<string, any>>[]
 ---
 <div>
     <h3 class='font-bold'>{series}</h3>
-    {_essays.map(essay => (
+    {(_essays || []).map(essay => (
         <a href={essay.url} class='text-gray-700'>
             {essay.frontmatter.title}
         </a>
