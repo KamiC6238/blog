@@ -13,11 +13,11 @@ import moonSvg from '../../assets/moon.svg';
         transform: rotate(0deg);
     }
     #mode-switch .moon {
-        transform: rotate(180deg);
+        /* transform: rotate(180deg); */
     }
 </style>
 
-<div class='flex flex-col justify-center items-center'>
+<div class='flex flex-col justify-center items-center fixed'>
     <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
     <p class='font-bold text-lg my-4 cursor dark:text-[#ecf2ff]'>Kobayashi</p>
     <div class='w-16 flex justify-between'>
@@ -35,7 +35,7 @@ import moonSvg from '../../assets/moon.svg';
     </div>
     <div class='overflow-hidden max-h-8 mt-6'>
         <div id='mode-switch' class='w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6 child:cursor-pointer light'>
-            <img src={sunSvg} alt='sun' />
+            <!-- <img src={sunSvg} alt='sun' /> -->
             <img class='moon' src={moonSvg} alt='moon' />
         </div>
     </div>
@@ -64,23 +64,23 @@ import moonSvg from '../../assets/moon.svg';
         }
     }
 
-    const mode = getModeFromLocal();
-    mode === DARK && rotate();
+    // const mode = getModeFromLocal();
+    // mode === DARK && rotate();
 
-    node?.addEventListener('click', (event) => {
-        // @ts-ignore
-        if (event.target?.nodeName === 'IMG') {
-            rotate();
+    // node?.addEventListener('click', (event) => {
+    //     // @ts-ignore
+    //     if (event.target?.nodeName === 'IMG') {
+    //         rotate();
 
-            if (getHTMLNode().classList.contains(DARK)) {
-                removeDark();
-                addLight();
-                setModeToLocal(LIGHT);
-            } else {
-                removeLight();
-                addDark();
-                setModeToLocal(DARK);
-            }
-        }
-    })
+    //         if (getHTMLNode().classList.contains(DARK)) {
+    //             removeDark();
+    //             addLight();
+    //             setModeToLocal(LIGHT);
+    //         } else {
+    //             removeLight();
+    //             addDark();
+    //             setModeToLocal(DARK);
+    //         }
+    //     }
+    // })
 </script>
