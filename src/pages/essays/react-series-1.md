@@ -3,7 +3,7 @@ layout: ../../layouts/BaseLayout.astro
 title: 'useMemo 与 useCallback 解析'
 pubDate: '2021.07.13'
 author: 'Kobayashi'
-tag: 'react'
+tag: 'React'
 isMarkdown: true
 ---
 

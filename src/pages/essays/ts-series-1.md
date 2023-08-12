@@ -3,7 +3,7 @@ layout: ../../layouts/BaseLayout.astro
 title: 'TypeScript项目实践之 Omit 特性'
 pubDate: '2020.07.24'
 author: 'Kobayashi'
-tag: 'typescript'
+tag: 'TypeScript'
 isMarkdown: true
 ---
 

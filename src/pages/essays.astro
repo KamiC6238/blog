@@ -1,12 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EssaysWrapper from './components/essays.astro';
+import { EssayTags } from '../constants';
 
 const allEssays = await Astro.glob('./essays/*.md');
-const nodeEssays = filterEssay('node');
-const viteEssays = filterEssay('vite');
-const reactEssays = filterEssay('react');
-const typescriptEssays = filterEssay('typescript');
+
+const essaysList = EssayTags.map(tag => ({
+    series: tag,
+    essays: filterEssay(tag)
+}));
 
 function filterEssay(tag: string) {
     return allEssays.filter(essay => essay.frontmatter.tag === tag);
@@ -15,9 +17,8 @@ function filterEssay(tag: string) {
 
 <BaseLayout subTitle='ESSAYS'>
     <div class='flex flex-col'>
-        <EssaysWrapper series='Vite' essays={viteEssays} />
-        <EssaysWrapper series='Node' essays={nodeEssays} />
-        <EssaysWrapper series='React' essays={reactEssays} />
-        <EssaysWrapper series='TypeScript' essays={typescriptEssays} />
+        {essaysList.map(({series, essays}) => (
+            <EssaysWrapper series={series} essays={essays} />
+        ))}
     </div>
 </BaseLayout>

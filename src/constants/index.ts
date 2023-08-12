@@ -18,3 +18,5 @@ export const ProjectConfigs = [
         },
     }
 ];
+
+export const EssayTags = ['Vite', 'Node', 'React', 'TypeScript']
