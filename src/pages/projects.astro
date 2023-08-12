@@ -1,14 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Project from './components/project.astro';
 ---
 
 <BaseLayout subTitle='PROJECTS'>
-    <a target='_blank' href='https://github.com/KamiC6238/monaco-breakpoints' class='text-gray-700'>monaco-breakpoints</a>
-    <p>A type-safe library support breakpoints in monaco-editor like vscode.</p>
-    <br />
-    <a target='_blank' href='https://github.com/KamiC6238/blog' class='text-gray-700'>Blog</a>
-    <p>
-        A blog developed using
-        <a target='_blank' href='https://astro.build/'>Astro</a>.
-    </p>
+    <Project href='https://github.com/KamiC6238/monaco-breakpoints' project='monaco-breakpoints'>
+        <p>A type-safe library support breakpoints in monaco-editor like vscode.</p>
+    </Project>
+    <Project href='https://github.com/KamiC6238/blog' project='Blog'>
+        <p>A blog developed using <a target='_blank' href='https://astro.build/'>Astro</a>.</p>
+    </Project>
 </BaseLayout>

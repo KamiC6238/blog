@@ -5,7 +5,8 @@ import EssaysWrapper from './components/essays.astro';
 const allEssays = await Astro.glob('./essays/*.md');
 const nodeEssays = filterEssay('node');
 const viteEssays = filterEssay('vite');
-// const reactEssays = filterEssay('react');
+const reactEssays = filterEssay('react');
+const typescriptEssays = filterEssay('typescript');
 
 function filterEssay(tag: string) {
     return allEssays.filter(essay => essay.frontmatter.tag === tag);
@@ -14,8 +15,9 @@ function filterEssay(tag: string) {
 
 <BaseLayout subTitle='ESSAYS'>
     <div class='flex flex-col'>
-        <EssaysWrapper series='Node' essays={nodeEssays} />
         <EssaysWrapper series='Vite' essays={viteEssays} />
-        <!-- <EssaysWrapper series='React' essays={reactEssays} /> -->
+        <EssaysWrapper series='Node' essays={nodeEssays} />
+        <EssaysWrapper series='React' essays={reactEssays} />
+        <EssaysWrapper series='TypeScript' essays={typescriptEssays} />
     </div>
 </BaseLayout>
