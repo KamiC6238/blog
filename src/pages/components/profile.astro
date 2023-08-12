@@ -3,23 +3,23 @@ import avatarSrc from '../../assets/avatar.png';
 import githubSvg from '../../assets/github.svg';
 import twitterSvg from '../../assets/twitter.svg';
 
-import sunSvg from '../../assets/sun.svg';
+// import sunSvg from '../../assets/sun.svg';
 import moonSvg from '../../assets/moon.svg';
 ---
 
-<style>
+<!-- <style>
     #mode-switch {
         transition: .8s ease-in-out;
         transform: rotate(0deg);
     }
     #mode-switch .moon {
-        /* transform: rotate(180deg); */
+        transform: rotate(180deg);
     }
-</style>
+</style> -->
 
 <div class='flex flex-col justify-center items-center fixed'>
     <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
-    <p class='font-bold text-lg my-4 cursor dark:text-[#ecf2ff]'>Kobayashi</p>
+    <p class='font-bold text-lg my-4 cursor dark:text-[#d4d4d4]'>Kobayashi</p>
     <div class='w-16 flex justify-between'>
         <a target='_blank' href='https://twitter.com/danzzzz11' class='after:hidden'>
             <img src={twitterSvg} class='w-6 h-6' alt='Twitter' />
@@ -28,13 +28,13 @@ import moonSvg from '../../assets/moon.svg';
             <img src={githubSvg} class='w-6 h-6' alt='GitHub' />
         </a>
     </div>
-    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 dark:child:text-[#ecf2ff] nlc:mb-4'>
+    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 dark:child:text-[#d4d4d4] nlc:mb-4'>
         <a href='/about/'>ABOUT</a>
         <a href='/essays/'>ESSAYS</a>
         <a href='/projects/'>PROJECTS</a>
     </div>
     <div class='overflow-hidden max-h-8 mt-6'>
-        <div id='mode-switch' class='w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6 child:cursor-pointer light'>
+        <div id='mode-switch' class='w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6 light'>
             <!-- <img src={sunSvg} alt='sun' /> -->
             <img class='moon' src={moonSvg} alt='moon' />
         </div>
@@ -42,27 +42,27 @@ import moonSvg from '../../assets/moon.svg';
 </div>
 
 <script>
-    import { DARK, LIGHT } from '../../constants';
-    import {
-        addDark,
-        addLight,
-        removeDark, 
-        removeLight,
-        getHTMLNode,
-        getModeFromLocal,
-        setModeToLocal,
-    } from '../../utils';
+    // import { DARK, LIGHT } from '../../constants';
+    // import {
+    //     addDark,
+    //     addLight,
+    //     removeDark, 
+    //     removeLight,
+    //     getHTMLNode,
+    //     getModeFromLocal,
+    //     setModeToLocal,
+    // } from '../../utils';
 
-    let degree = 0;
+    // let degree = 0;
 
-    const node = document.getElementById('mode-switch');
+    // const node = document.getElementById('mode-switch');
 
-    const rotate = () => {
-        if (node) {
-            degree += 180;
-            node.style.transform = `rotate(-${degree}deg)`
-        }
-    }
+    // const rotate = () => {
+    //     if (node) {
+    //         degree += 180;
+    //         node.style.transform = `rotate(-${degree}deg)`
+    //     }
+    // }
 
     // const mode = getModeFromLocal();
     // mode === DARK && rotate();

@@ -28,7 +28,7 @@ a:hover:after {
 }
 
 code {
-  color: #9d342a !important;
+  color: #c94135 !important;
   background-color: rgba(216, 217, 218, 0.05);
   padding: 0.1em;
   border-radius: 0.4em;
@@ -36,4 +36,24 @@ code {
 
 code:before, code:after {
   display: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+pre.astro-code::-webkit-scrollbar {
+  display: none;
+}
+
+pre.astro-code {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
