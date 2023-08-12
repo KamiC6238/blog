@@ -19,7 +19,7 @@ import moonSvg from '../../assets/moon.svg';
 
 <div class='flex flex-col justify-center items-center'>
     <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
-    <p class='font-bold text-lg my-4 cursor'>Kobayashi</p>
+    <p class='font-bold text-lg my-4 cursor dark:text-[#ecf2ff]'>Kobayashi</p>
     <div class='w-16 flex justify-between'>
         <a target='_blank' href='https://twitter.com/danzzzz11' class='after:hidden'>
             <img src={twitterSvg} class='w-6 h-6' alt='Twitter' />
@@ -28,7 +28,7 @@ import moonSvg from '../../assets/moon.svg';
             <img src={githubSvg} class='w-6 h-6' alt='GitHub' />
         </a>
     </div>
-    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 nlc:mb-4'>
+    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 dark:child:text-[#ecf2ff] nlc:mb-4'>
         <a href='/about/'>ABOUT</a>
         <a href='/essays/'>ESSAYS</a>
         <a href='/projects/'>PROJECTS</a>
@@ -42,22 +42,44 @@ import moonSvg from '../../assets/moon.svg';
 </div>
 
 <script>
-    const modeNode = document.getElementById('mode-switch');
-    let deg = 0;
+    import { DARK, LIGHT } from '../../constants';
+    import {
+        addDark,
+        addLight,
+        removeDark, 
+        removeLight,
+        getHTMLNode,
+        getModeFromLocal,
+        setModeToLocal,
+    } from '../../utils';
 
-    modeNode?.addEventListener('click', (event) => {
+    let degree = 0;
+
+    const node = document.getElementById('mode-switch');
+
+    const rotate = () => {
+        if (node) {
+            degree += 180;
+            node.style.transform = `rotate(-${degree}deg)`
+        }
+    }
+
+    const mode = getModeFromLocal();
+    mode === DARK && rotate();
+
+    node?.addEventListener('click', (event) => {
         // @ts-ignore
         if (event.target?.nodeName === 'IMG') {
-            deg += 180;
+            rotate();
 
-            if (modeNode.classList.contains('dark')) {
-                modeNode.classList.remove('dark');
-                modeNode.classList.add('light');
-                modeNode.style.transform = `rotate(-${deg}deg)`
+            if (getHTMLNode().classList.contains(DARK)) {
+                removeDark();
+                addLight();
+                setModeToLocal(LIGHT);
             } else {
-                modeNode.classList.remove('light');
-                modeNode.classList.add('dark');
-                modeNode.style.transform = `rotate(-${deg}deg)`
+                removeLight();
+                addDark();
+                setModeToLocal(DARK);
             }
         }
     })

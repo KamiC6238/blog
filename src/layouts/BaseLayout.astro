@@ -4,10 +4,28 @@ import Profile from '../pages/components/profile.astro';
 
 const siteTitle = 'KOBAYASHI';
 const { subTitle } = Astro.props;
-const commonCls = 'flex-1 child-p:text-gray-700 child-p:font-normal break-keep max-w-2xl pb-20 text-base-pure';
+const commonCls = 'flex-1 child-p:text-gray-700 dark:child:text-[#ecf2ff] child-p:font-normal max-w-2xl pb-20 text-base-pure';
 const isMarkdown = !!Astro.props?.frontmatter?.isMarkdown;
 const essayTitle = Astro.props?.frontmatter?.title;
 ---
+<script>
+	import { DARK, LIGHT } from '../constants';
+	import { removeDark, removeLight, addDark, addLight, getModeFromLocal, setModeToLocal } from '../utils';
+
+	let mode = getModeFromLocal();
+
+	if (mode !== DARK && mode !== LIGHT) {
+		setModeToLocal(LIGHT);
+	} else {
+		if (mode === DARK) {
+			removeLight();
+			addDark();
+		} else {
+			removeDark();
+			addLight();
+		}
+	}
+</script>
 
 <html lang='en'>
 	<head>
@@ -15,7 +33,7 @@ const essayTitle = Astro.props?.frontmatter?.title;
 		<title>{essayTitle ?? subTitle ?? siteTitle}</title>
 		<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 	</head>
-	<body>
+	<body class='bg-white dark:bg-[#191825]'>
 		<div class='flex justify-between items-start py-20 w-full h-full max-w-4xl my-0 mx-auto'>
 			<Profile />
 			<section class={isMarkdown ? `prose ${commonCls}` : commonCls} >
