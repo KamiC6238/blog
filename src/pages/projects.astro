@@ -1,13 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Project from './components/project.astro';
+import { ProjectConfigs } from '../constants';
 ---
 
 <BaseLayout subTitle='PROJECTS'>
-    <Project href='https://github.com/KamiC6238/monaco-breakpoints' project='monaco-breakpoints'>
-        <p>A type-safe library support breakpoints in monaco-editor like vscode.</p>
-    </Project>
-    <Project href='https://github.com/KamiC6238/blog' project='Blog'>
-        <p>A blog developed using <a target='_blank' href='https://astro.build/'>Astro</a>.</p>
-    </Project>
+    {ProjectConfigs.map(({href, name, content, aTagInfo}) => (
+        <div class='text-gray-700 mb-4'>
+            <a target='_blank' href={href} class='font-bold text-base'>{name}</a>
+            <p>
+                {content}
+                {
+                    aTagInfo
+                        ? <a target='_blank' href={aTagInfo.href}>{aTagInfo.content}</a>
+                        : ''
+                }
+            </p>
+        </div>
+    ))}
 </BaseLayout>
