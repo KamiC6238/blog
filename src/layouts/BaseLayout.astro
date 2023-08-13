@@ -2,10 +2,11 @@
 import '../styles/global.css';
 import Profile from '../pages/components/profile.astro';
 import { ViewTransitions } from 'astro:transitions';
+import { ProfileTabs } from '../constants';
 
 const siteTitle = 'Kobayashi\'s Blog';
 const { subTitle } = Astro.props;
-const commonCls = 'flex-1 child-p:text-gray-700 dark:child:text-[#d4d4d4] child-p:font-normal max-w-2xl pb-20 absolute right-0 left-[224px] text-base leading-7';
+const commonCls = 'section-media flex-1 child-p:text-gray-700 dark:child:text-[#d4d4d4] child-p:font-normal max-w-2xl pb-20 absolute right-0 left-[224px] text-base leading-7';
 const isMarkdown = !!Astro.props?.frontmatter?.isMarkdown;
 const essayTitle = Astro.props?.frontmatter?.title;
 ---
@@ -34,10 +35,21 @@ const essayTitle = Astro.props?.frontmatter?.title;
 		<title>{essayTitle ?? siteTitle}</title>
 		<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 		<ViewTransitions />
+		<style>
+			.layout-container {
+				@apply flex justify-between items-start py-20 px-5 w-full h-full max-w-4xl my-0 mx-auto relative;
+			}
+			.layout-container-media {
+				@apply max-[930px]:flex-col max-[930px]:items-center max-[930px]:p-5;
+			}
+			.section-media {
+				@apply max-[930px]:left-0 max-[930px]:relative;
+			}
+		</style>
 	</head>
-	<body class='bg-white dark:bg-[#191825] no-scrollbar'>
-		<div class='flex justify-between items-start py-20 w-full h-full max-w-4xl my-0 mx-auto relative'>
-			<Profile />
+	<body class='bg-white dark:bg-[#191825] no-scrollbar min-w-[540px]'>
+		<div class='layout-container layout-container-media'>
+			<Profile activeTab={isMarkdown ? ProfileTabs.ESSAYS : subTitle} />
 			<section class={isMarkdown ? `prose dark:prose-invert ${commonCls}` : commonCls} >
 				<h2 class={isMarkdown ? '' : 'font-bold text-lg mb-3'}>{essayTitle ?? subTitle}</h2>
 				<slot class={isMarkdown ? 'prose dark:prose-invert' : ''}/>

@@ -2,6 +2,26 @@ export const DARK_MODE_KEY = 'KOBAYASHI_MODE';
 export const DARK = 'dark';
 export const LIGHT = 'light';
 
+export const ProfileTabs = {
+    ABOUT: 'ABOUT',
+    ESSAYS: 'ESSAYS',
+    PROJECTS: 'PROJECTS'
+}
+export const ProfileTabsList = [
+    {
+        name: ProfileTabs.ABOUT,
+        href: '/about/'
+    },
+    {
+        name: ProfileTabs.ESSAYS,
+        href: '/essays/'
+    },
+    {
+        name: ProfileTabs.PROJECTS,
+        href: '/projects/'
+    },
+]
+
 export const ProjectConfigs = [
     {
         name: 'monaco-breakpoints',

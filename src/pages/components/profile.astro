@@ -5,21 +5,38 @@ import twitterSvg from '../../assets/twitter.svg';
 
 // import sunSvg from '../../assets/sun.svg';
 import moonSvg from '../../assets/moon.svg';
+import { ProfileTabsList } from '../../constants';
+
+const { activeTab } = Astro.props;
 ---
 
-<!-- <style>
-    #mode-switch {
-        transition: .8s ease-in-out;
-        transform: rotate(0deg);
+<style>
+    .profile-container {
+        @apply flex flex-col justify-center items-center fixed;
     }
-    #mode-switch .moon {
-        transform: rotate(180deg);
+    .profile-container-media {
+        @apply max-[930px]:relative;
     }
-</style> -->
+    .profile-link {
+        @apply flex flex-col items-center mt-4 text-sm child:text-gray-500 dark:child:text-[#d4d4d4] nlc:mb-4;
+    }
+    .profile-link-media {
+        @apply max-[930px]:flex-row max-[930px]:nlc:mb-0 max-[930px]:nlc:mr-4;
+    }
+    .name {
+        @apply font-bold text-lg my-4 dark:text-[#d4d4d4];
+    }
+    .mode {
+        @apply w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6;
+    }
+    .active-tab {
+        @apply font-bold;
+    }
+</style>
 
-<div class='flex flex-col justify-center items-center fixed'>
+<div class='profile-container profile-container-media'>
     <img src={avatarSrc} alt='avatar' class='rounded-full w-[120px] h-[120px] object-cover' />
-    <p class='font-bold text-lg my-4 cursor dark:text-[#d4d4d4]'>Kobayashi</p>
+    <p class='name'>Kobayashi</p>
     <div class='w-16 flex justify-between'>
         <a target='_blank' href='https://twitter.com/danzzzz11' class='after:hidden'>
             <img src={twitterSvg} class='w-6 h-6' alt='Twitter' />
@@ -28,13 +45,13 @@ import moonSvg from '../../assets/moon.svg';
             <img src={githubSvg} class='w-6 h-6' alt='GitHub' />
         </a>
     </div>
-    <div class='flex flex-col items-center mt-4 text-sm child:text-gray-500 dark:child:text-[#d4d4d4] nlc:mb-4'>
-        <a href='/about/'>ABOUT</a>
-        <a href='/essays/'>ESSAYS</a>
-        <a href='/projects/'>PROJECTS</a>
+    <div class='profile-link profile-link-media'>
+        {ProfileTabsList.map(({name, href}) => (
+            <a href={href} class={name === activeTab ? 'active-tab' : ''}>{name}</a>
+        ))}
     </div>
     <div class='overflow-hidden max-h-8 mt-6'>
-        <div id='mode-switch' class='w-20 h-20 flex flex-col items-center justify-between child:w-6 child:h-6 light'>
+        <div class='mode'>
             <!-- <img src={sunSvg} alt='sun' /> -->
             <img class='moon' src={moonSvg} alt='moon' />
         </div>
