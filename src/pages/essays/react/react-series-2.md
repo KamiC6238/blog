@@ -126,7 +126,7 @@ export default BrowserRouter;
 
 > Router 的源码实现
 
-```
+```typescript
 class Router extends React.Component {
   constructor(props) {
     super(props);

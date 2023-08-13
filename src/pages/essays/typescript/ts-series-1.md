@@ -25,7 +25,7 @@ isMarkdown: true
 
 现在我们需要对表格做一个**筛选功能**，这会用到`ant-desigh`里`Table`的`filterDropdown`属性，如下图所示：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/24/173813162fcfee86~tplv-t2oaga2asx-image.image)
+![](/ts-1/1.png)
 
 那么如何使用呢，还是看下面的代码吧：
 ```javascript
@@ -63,7 +63,7 @@ export interface FilterDropdownProps {
 
 我们看到 ```setSelectedKeys```，其参数类型是 ```React.Key[]``` 类型的，
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/24/173813ba001de1b1~tplv-t2oaga2asx-image.image)
+![](/ts-1/2.png)
 通过上图可以发现，这个 ```setSelectedKeys``` 只能接收一个 ```string``` 或者 ```number``` 类型的数组。
 
 那如果我们在需求里遇到了要用```string```或者```number```类型之外的类型怎么办？
@@ -76,7 +76,7 @@ export interface FilterDropdownProps {
 
 其中 `T` 是 `type`也就是类型的简写， `K` 是 `key` 的简写，所以这里的意思就是**忽略**该类型的`key`属性
 
-```
+```typescript
 import { FilterDropdownProps } from 'antd/es/table'
 
 type TagProps = {
@@ -100,7 +100,7 @@ type MyFilterDropdownProps = Omit<FilterDropdownProps, 'selectedKeys' | 'setSele
 
 在此之前，我们先看看`column`里有哪些属性，上源码：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/24/1738153889b7bc64~tplv-t2oaga2asx-image.image)
+![](/ts-1/3.png)
 
 可以看到，这个`ColumnType`就是`column` 数组中每个对象可以使用的属性，其中就有 `filterDropdown` 属性，所以我们最后一步操作如下代码：
 
@@ -152,5 +152,4 @@ const MyTable: FC<MyTableProps<User>> = (props) => {
 
 其实到这里，关于 `Omit`的用法就讲完了，我想通过上面这几段代码，应该可以很好的说明`Omit`在实践当中是如何使用的。
 
-    谢谢观看小弟的文章，希望对各位有帮助。
 

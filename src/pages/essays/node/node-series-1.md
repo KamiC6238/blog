@@ -76,7 +76,7 @@ console.log('entry')
 ```
 最终执行结果，可以看到这里对 `a.js` 加载了两次，但是只打印了一次 moduleA
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16772b66bc8a44b6b29f1d2b2c07699e~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](/node-1/1.png)
 
 从结果上看，当 `node index.js` 被执行时，首先进入 `a.js` 模块，接着 `a.js` 模块引入了 `b.js` 模块，而 `b.js` 又引入了 `a.js`，如果没有缓存，那么这里 `a.js` 与 `b.js` 之间的相互引入将无穷无尽，而正因为有缓存，当在 `b.js` 引入 `a.js` 时，由于 `a.js` 已经在 `index.js` 里被引入过一次，因此再次引入时，将会直接返回缓存的结果，所以控制台先打印 `moduleB` ，`b.js` 代码执行完后，再回到 `a.js` 打印 `moduleA` ，最终回到 `index.js` 打印 `entry` 
 
@@ -117,7 +117,7 @@ console.log('module: ', module);
 ```
 在 `console.log` 这一行代码打个断点，我们会看到下图：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8772ae26b8f473795e8e4bdd08da736~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](/node-1/2.png)
 可以看到在缓存里，只有 `a.js` 和 `b.js` 这两个文件模块的缓存，并没有内建模块 `fs` 的缓存。
 
 值得一提的是，内建模块的加载优先级，是仅次于缓存的，也就是说会先判断模块是否有缓存，没有的话才会判断加载的模块是否为内建模块。
@@ -140,7 +140,7 @@ Module._resolveFilename = function(request, parent, isMain) {
 `Module._resolveFilename` 这个方法做了两件事：
 
 1. 通过 `Module._resolveLookupPaths` 收集模块文件所在的所有可能的路径(如下图
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/923fd641dedf4792b528f688a9f7c33b~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](/node-1/3.png)
 2. 通过 `Module._findPath` 确定文件所在的真正路径，这里我为了把加载过程写的更清楚，简化了很多代码。
 ```javascript
 Module._findPath = function(request, paths, isMain) {
@@ -190,7 +190,7 @@ function tryPackage(basePath, exts, isMain, request) {
 
 查找第三方模块的过程，实际上就是在循环的过程中，一级一级的往上查找 `node_modules` 目录，如果找到了要加载的模块，那么再判断这个模块对应的 `packages.json` 是否指定了 `main` 属性，如果有指定了 `main` 属性，那么就加载 `main` 属性指向的文件，否则默认指向 `index.js`，如果没有 `index.js` 文件，那么就查找 `index.json` ，还没有就找 `index.node`，如果都找不到，那么将会报错。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ab372ca7729486cb80ea8b1ea35ed91~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](/node-1/4.png)
 
 理解了 `模块的缓存机制` 和 `模块的加载机制`，接下来就是完整的 `require` 的过程了。
 ## require 流程
@@ -390,7 +390,7 @@ exports = {
 }
 ```
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba56f352a4644db58440903c58d4c917~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](/node-1/5.png)
 
 ### Q3
 
