@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../../layouts/BaseLayout.astro
 title: 'require 源码解析'
 pubDate: '2023.04.05'
 author: 'Kobayashi'

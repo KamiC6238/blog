@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../../layouts/BaseLayout.astro
 title: '使用 React + IntersectionObserver 实现图片懒加载'
 pubDate: '2021.06.22'
 author: 'Kobayashi'

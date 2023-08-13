@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../../layouts/BaseLayout.astro
 title: '环境变量与模式'
 pubDate: '2023.05.26'
 author: 'Kobayashi'

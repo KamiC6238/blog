@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EssaysWrapper from './components/essays.astro';
 import { EssayTags } from '../constants';
 
-const allEssays = await Astro.glob('./essays/*.md');
+const allEssays = await Astro.glob('./essays/**/*.md');
 
 const essaysList = EssayTags.map(tag => ({
     series: tag,

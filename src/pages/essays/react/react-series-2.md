@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+layout: ../../../layouts/BaseLayout.astro
 title: 'react-router(V5) 解析'
 pubDate: '2021.06.28'
 author: 'Kobayashi'
