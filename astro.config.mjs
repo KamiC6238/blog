@@ -9,5 +9,8 @@ export default defineConfig({
       theme: 'vitesse-dark',
       syntaxHighlight: "shiki",
     }
+  },
+  experimental: {
+    viewTransitions: true
   }
 });
