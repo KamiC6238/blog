@@ -39,4 +39,4 @@ export const ProjectConfigs = [
     }
 ];
 
-export const EssayTags = ['Vite', 'Node', 'React', 'TypeScript']
+export const EssayTags = ['Build Tools', 'Node', 'React', 'TypeScript', 'Small Talk']
