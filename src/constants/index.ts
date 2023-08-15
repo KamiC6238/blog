@@ -39,4 +39,4 @@ export const ProjectConfigs = [
     }
 ];
 
-export const EssayTags = ['Build Tools', 'Node', 'React', 'TypeScript', 'Small Talk']
+export const EssayTags = ['Small Talk', 'Build Tools', 'Node', 'React', 'TypeScript']

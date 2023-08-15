@@ -7,7 +7,7 @@ const allEssays = await Astro.glob('./essays/**/*.md');
 
 const essaysList = EssayTags.map(tag => ({
     series: tag,
-    essays: filterEssay(tag)
+    essays: filterEssay(tag),
 }));
 
 function filterEssay(tag: string) {
