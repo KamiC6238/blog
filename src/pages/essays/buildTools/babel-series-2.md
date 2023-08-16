@@ -73,7 +73,7 @@ const infiniteLoopPlugin = babel => {
     }
 }
 ```
-babel 的插件是一个接收 babel 参数 (**如何证明，这里文章最后的彩蛋**) 的函数，并且返回两个属性：
+babel 的插件是一个接收 `babel` 参数的函数，并且返回两个属性：
  - name: 插件名称
  - visitor: 访问节点的对象
 根据上面的代码，当我们写了一个 `while` 循环，那么在代码转换的过程中，在访问 `WhileStatement` 这个节点时，就会执行对应的 `enter` 函数，上面的简写形式等价于
@@ -227,6 +227,8 @@ console.log(res.code);
 ![](/buildTools/1.png)
 
 ### 最后
-对于 babel，我始终认为学习一个知识点，应该去理解它能做什么，怎么做的，解决了什么问题。只有明白这些，才能更好的去运用。
+对于 babel 来说，我需要说明的是，我对 babel 说不上熟悉，只是理解 babel 是什么，为什么需要它，以及能做什么事，但我认为这样就足够了。
 
-我发现现在很多面试喜欢问 xxx 有什么字段，API 有什么的，我觉得这些问题真的没什么必要，一查就能查到的东西真的有问的价值吗？没有说出来真的就意味着基础不行吗？显然不是的，站在个人角度来说，对一个点的理解程度才是需要考察的点。
+对于文章内容里出现的一些 AST 节点，你可以在这里看到所有的节点类型 https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md#whilestatement。
+
+如果你想要看到实际的 AST 结构，这个链接我想可以满足你 https://astexplorer.net/#/Z1exs6BWMq

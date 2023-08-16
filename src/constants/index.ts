@@ -29,6 +29,11 @@ export const ProjectConfigs = [
         content: 'A type-safe library support breakpoints in monaco-editor like vscode'
     },
     {
+        name: 'babel-infinite-loop-plugin',
+        href: 'https://github.com/KamiC6238/infinite-loop-plugin',
+        content: 'A Babel plugin for detecting the presence of infinite loop code'
+    },
+    {
         name: 'Blog',
         href: 'https://github.com/KamiC6238/blog',
         content: 'A blog developed using ',
