@@ -6,4 +6,5 @@ author: 'Kobayashi'
 tag: 'Small Talk'
 tagName: '杂谈'
 isMarkdown: true
+order: 1
 ---

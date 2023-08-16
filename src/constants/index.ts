@@ -4,22 +4,46 @@ export const LIGHT = 'light';
 
 export const ProfileTabs = {
     ABOUT: 'ABOUT',
+    CATEGORIES: 'CATEGORIES',
     ESSAYS: 'ESSAYS',
-    PROJECTS: 'PROJECTS'
+    PROJECTS: 'SIDE PROJECTS'
 }
+
 export const ProfileTabsList = [
     {
-        name: ProfileTabs.ABOUT,
+        name: `${ProfileTabs.ABOUT} / 关于我`,
         href: '/about/'
     },
+    // {
+    //     name: `${ProfileTabs.CATEGORIES} / 文章分类`,
+    //     href: '/categories/'
+    // },
     {
-        name: ProfileTabs.ESSAYS,
+        name: `${ProfileTabs.ESSAYS} / 文章`,
         href: '/essays/'
     },
     {
-        name: ProfileTabs.PROJECTS,
+        name: `${ProfileTabs.PROJECTS} / 个人项目`,
         href: '/projects/'
     },
+]
+
+export const Categories = [
+    {
+        category: 'Small Talk',
+        desc: '杂谈',
+        href: '//'
+    },
+    {
+        category: 'Programming',
+        desc: '技术',
+        href: '//'
+    },
+    {
+        category: 'Life',
+        desc: '生活',
+        href: '//'
+    }
 ]
 
 export const ProjectConfigs = [
@@ -44,4 +68,5 @@ export const ProjectConfigs = [
     }
 ];
 
-export const EssayTags = ['Small Talk', 'Build Tools', 'Node', 'React', 'TypeScript']
+// export const EssayTags = ['Small Talk', 'Build Tools', 'NodeJS', 'React', 'TypeScript']
+export const EssayTags = ['Small Talk', 'Build Tools', 'NodeJS', 'React']

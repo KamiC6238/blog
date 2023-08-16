@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Categories as CategoryList } from '../constants';
+---
+
+<BaseLayout subTitle='CATEGORIES'>
+    {CategoryList.map(({ category, desc }) => (
+        <div class='mb-4'>
+            <a>
+                <span class='mr-1'>{ category }</span> / <span class='ml-1'>{ desc }</span>
+            </a>
+        </div>
+    ))}
+</BaseLayout>

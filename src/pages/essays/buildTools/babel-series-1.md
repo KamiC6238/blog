@@ -5,6 +5,7 @@ pubDate: '2023.08.15'
 author: 'Kobayashi'
 tag: 'Build Tools'
 isMarkdown: true
+order: 2
 ---
 ### babel 是什么？
 babel 是一个 JavaScript compiler，也可以叫 transpiler，因为 babel 本质上是在做的事情是 source-to-source，也就是将一份代码转换成另一份代码。

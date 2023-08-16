@@ -1,10 +1,11 @@
 ---
 layout: ../../../layouts/BaseLayout.astro
-title: 'require 源码解析'
+title: '认识 require'
 pubDate: '2023.04.05'
 author: 'Kobayashi'
-tag: 'Node'
+tag: 'NodeJS'
 isMarkdown: true
+order: 2
 ---
 ## 前言
 当你在一个 `js` 文件内使用 `module.exports` 导出模块以及 `require` 加载模块时，是否有想过这些变量是从哪里来的呢？如果没有或者有想过但是却没有进一步去探索，那么欢迎你阅读这篇文章，我会解析 `require` 一个模块时都发生了什么，并且回答下面几个问题：
