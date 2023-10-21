@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/resources/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
