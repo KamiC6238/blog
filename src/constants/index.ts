@@ -48,14 +48,24 @@ export const Categories = [
 
 export const ProjectConfigs = [
     {
+        name: 'monaco-theme-converter',
+        href: 'https://github.com/KamiC6238/monaco-theme-converter',
+        content: 'An easy way to use vscode theme in monaco-editor.'
+    },
+    {
         name: 'monaco-breakpoints',
         href: 'https://github.com/KamiC6238/monaco-breakpoints',
-        content: 'A type-safe library support breakpoints in monaco-editor like vscode'
+        content: 'A type-safe library support breakpoints in monaco-editor like vscode.'
+    },
+    {
+        name: 'vite-plugin-lib-css-injection',
+        href: 'https://github.com/KamiC6238/vite-plugin-lib-css-injection',
+        content: 'A vite plugin that would inject the css file into your bundled js file.'
     },
     {
         name: 'babel-infinite-loop-plugin',
         href: 'https://github.com/KamiC6238/infinite-loop-plugin',
-        content: 'A Babel plugin for detecting the presence of infinite loop code'
+        content: 'A Babel plugin for detecting the presence of infinite loop code.'
     },
     {
         name: 'Blog',
